@@ -1,0 +1,33 @@
+<div class="main">
+    <!-- Balise concernant la création d'une nouvelle main -->
+    <div class="newHand"> 
+        <div>
+            <button (click)="showCards()">Créer main</button>
+        </div>
+        <div class="hand" *ngIf="showHand">
+            <div *ngFor="let card of hand">
+                <div class="card">
+                    <img [src]="card.img">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Balise concernant le trie de la nouvelle main -->
+    <div class="sortedHand">
+        <div>
+            <button (click)="sortCards()">Trier cartes</button>
+        </div>
+        <p *ngIf="showError">Veuillez d'abord ajouter des cartes</p>
+        <div class="hand" *ngIf="showSortedHand">
+            <div *ngFor="let card of handSorted">
+                <div class="card">
+                    <img [src]="card.img">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Balise concernant la suppression de la main -->
+    <div class="resetHand">
+        <button (click)="newHand()">Supprimer main</button>
+    </div>
+</div>
